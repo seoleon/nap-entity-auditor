@@ -64,17 +64,10 @@ jobs:
     timeout-minutes: 25
     steps:
       - uses: actions/checkout@v4
-      - name: Preparar .env del modo gratuito
-        run: |
-          cp .env.free.example .env
-          sed -i "s|^SECRET_KEY=.*|SECRET_KEY=$(openssl rand -hex 32)|" .env
-          sed -i "s|^SEARXNG_SECRET=.*|SEARXNG_SECRET=$(openssl rand -hex 32)|" .env
-          sed -i "s|^ADMIN_EMAIL=.*|ADMIN_EMAIL=ci@example.com|" .env
-          sed -i "s|^ADMIN_PASSWORD=.*|ADMIN_PASSWORD=ci-password-123456|" .env
+      - name: Arrancar con el script de doble clic (iniciar.sh)
+        run: printf 'ci@example.com\nci-password-123456\n' | ./iniciar.sh
       - name: Validar docker-compose completo
         run: POSTGRES_PASSWORD=x docker compose config -q
-      - name: Arrancar modo gratuito
-        run: docker compose -f docker-compose.free.yml up -d --build
       - name: Prueba de humo (login, alta, auditoría demo, informes)
         run: |
           for i in $(seq 1 60); do curl -fs http://localhost:3000/api/health && break; sleep 2; done

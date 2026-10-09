@@ -4,6 +4,18 @@ Plataforma de auditoría SEO local que comprueba la **identidad digital de empre
 
 > Principios: nunca inventa datos, nunca atribuye una citación sin evidencias suficientes, separa **hallazgos confirmados** de **hipótesis**, no se salta robots.txt, CAPTCHA ni inicios de sesión, y no hace scraping de Google Maps. Las puntuaciones son internas y **no son factores de ranking de Google**.
 
+## 👋 Empezar sin conocimientos técnicos (Windows o Mac)
+
+1. **Instala Docker Desktop** (gratis): <https://www.docker.com/products/docker-desktop/>. Ábrelo y espera a que indique que está en marcha.
+2. **Descarga la aplicación**: en esta página pulsa el botón verde **Code → Download ZIP** y descomprime el ZIP (por ejemplo en el Escritorio).
+3. **Arráncala con doble clic** dentro de la carpeta descomprimida:
+   - **Windows**: `iniciar.bat`
+   - **Mac**: abre la app *Terminal*, escribe `bash ` (con un espacio), arrastra el archivo `iniciar.sh` a la ventana y pulsa Intro.
+4. La primera vez te pedirá **tu correo y una contraseña** (serán tu acceso). Espera unos minutos: al terminar se abrirá el navegador en <http://localhost:3000>.
+5. Entra con ese correo y contraseña. Para probar sin Internet usa el modo **Demo** al lanzar una auditoría.
+
+Para volver a usarla otro día: abre Docker Desktop y repite el paso 3 (ya no te pedirá nada). Para pararla: en Docker Desktop, pulsa *Stop* en el grupo `nap-entity-auditor`.
+
 ## 🚀 Lanzar gratis (sin APIs de pago)
 
 Solo necesitas Docker. Usa SQLite, sin Redis, y SearXNG autoalojado como buscador:
