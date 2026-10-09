@@ -9,8 +9,8 @@ Plataforma de auditoría SEO local que comprueba la **identidad digital de empre
 Solo necesitas Docker. Usa SQLite, sin Redis, y SearXNG autoalojado como buscador:
 
 ```bash
-git clone https://github.com/seoleon/auditor-geo-pro.git
-cd auditor-geo-pro/nap-entity-auditor
+git clone https://github.com/seoleon/nap-entity-auditor.git
+cd nap-entity-auditor
 cp .env.free.example .env
 # Edita .env: SECRET_KEY y SEARXNG_SECRET (python3 -c "import secrets;print(secrets.token_urlsafe(48))"),
 # ADMIN_EMAIL y ADMIN_PASSWORD (tu usuario)
@@ -55,7 +55,7 @@ nap-entity-auditor/
 
 ```bash
 # Backend
-cd nap-entity-auditor/backend
+cd backend
 python -m venv .venv && . .venv/bin/activate
 pip install -r requirements-dev.txt
 cp ../.env.example .env            # edita SECRET_KEY y, si quieres, claves de API
@@ -65,7 +65,7 @@ python -m app.cli seed-sadhana --email tu@correo.com      # primer caso (NAP pen
 uvicorn app.main:app --reload --port 8000
 
 # Frontend (otra terminal)
-cd nap-entity-auditor/frontend
+cd frontend
 npm install
 BACKEND_URL=http://localhost:8000 npm run dev               # http://localhost:3000
 ```
@@ -89,3 +89,7 @@ Producción con Docker: ver [docs/DESPLIEGUE.md](docs/DESPLIEGUE.md).
 - `next build` correcto; flujo completo probado en navegador (login → alta → confirmar NAP → auditoría demo → evidencias → grafo → informes).
 - Celery + Redis: auditoría ejecutada a través de la cola.
 - **No verificado en este entorno**: auditorías reales contra Internet (la red del entorno de desarrollo bloquea el acceso a sitios externos y no hay claves de API) y la construcción de las imágenes Docker (sin demonio Docker; `docker compose config` sí valida). Ver [limitaciones](docs/ARQUITECTURA.md#limitaciones-y-funciones-pendientes).
+
+## Licencia
+
+MIT — ver [LICENSE](LICENSE).

@@ -13,7 +13,7 @@
 ## 1. Backend
 
 ```bash
-cd nap-entity-auditor/backend
+cd backend
 python -m venv .venv && . .venv/bin/activate
 pip install -r requirements-dev.txt          # requirements.txt en producción
 cp ../.env.example .env
@@ -65,7 +65,7 @@ Cada subpetición del navegador se valida contra SSRF y se bloquean imágenes y 
 ## 2. Frontend
 
 ```bash
-cd nap-entity-auditor/frontend
+cd frontend
 npm install
 BACKEND_URL=http://localhost:8000 npm run dev     # http://localhost:3000
 ```

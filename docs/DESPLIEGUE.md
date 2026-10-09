@@ -29,8 +29,8 @@ Copia de seguridad: `docker compose -f docker-compose.free.yml exec -T backend s
 
 ```bash
 # En el VPS (Ubuntu 22.04/24.04 con Docker Engine y Compose v2)
-git clone https://github.com/seoleon/auditor-geo-pro.git
-cd auditor-geo-pro/nap-entity-auditor
+git clone https://github.com/seoleon/nap-entity-auditor.git
+cd nap-entity-auditor
 cp .env.example .env
 nano .env
 ```
